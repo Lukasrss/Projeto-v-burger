@@ -47,9 +47,13 @@
                                     Tipo do pão
                                 </div>
                                 <div class="card-body">
-                                    <div class="form-check form-check-inline">
+                                    <div class="form-check form-check-inline" value="gergelim" v-model="inputTipoPao">
                                         <input type="radio" class="form-check-input">
                                         <label class="form-check-label"> Gergelim </label>
+                                    </div>
+                                    <div class="form-check form-check-inline" value="australiano" v-model="inputTipoPao">
+                                        <input type="radio" class="form-check-input">
+                                        <label class="form-check-label"> Australiano </label>
                                     </div>
                                 </div>
                             </div> <!-- fim card -->
@@ -155,7 +159,16 @@
         const vm = new Vue({
             
             el: '#app',
+            
+            data: {
+                inputTipoPao: '',
+            },
 
+            computed: {
+                pao(){
+                    
+                }
+            }
 
         })
 
