@@ -33,6 +33,13 @@
                     <div class="row mt-2">
                         <div class="col">
                             <img :src="pao[0]">
+                            <img :src="alface">
+                            <img :src="ketchup">
+                            <img :src="mostarda">
+                            <img :src="maionese">
+                            <img :src="humburger">
+                            <img :src="pao[1]">
+
                         </div>
                     </div>
                 </div> <!-- FIM seção img -->
@@ -47,12 +54,12 @@
                                     Tipo do pão
                                 </div>
                                 <div class="card-body">
-                                    <div class="form-check form-check-inline" value="gergelim" v-model="inputTipoPao">
-                                        <input type="radio" class="form-check-input">
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" value="gergelim" v-model="inputTipoPao">
                                         <label class="form-check-label"> Gergelim </label>
                                     </div>
-                                    <div class="form-check form-check-inline" value="australiano" v-model="inputTipoPao">
-                                        <input type="radio" class="form-check-input">
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" value="australiano" v-model="inputTipoPao">
                                         <label class="form-check-label"> Australiano </label>
                                     </div>
                                 </div>
@@ -172,7 +179,7 @@
                         case 'australiano':
                             return ['imagens/pao_australiano_superior.png','imagens/pao_australiano_inferior.png']
                         default: 
-                            return ['imagens/padrao/pao_superior.png','imagens/padrao/pao_superior.png']
+                            return ['imagens/padrao/pao_superior.png','imagens/padrao/pao_inferior.png']
                     }
                 }
             }
