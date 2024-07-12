@@ -268,7 +268,11 @@
 
             methods: {
                 fazerPedido(){
-                    
+                    if(this.inputTipoPao && this.inputTipoHamburguer){
+                        this.etapa = 2
+                    }else{
+                        alert('Selecione pelo menos o um tipo de pão e um tipo de carne.')
+                    }
                 },
             },
 
