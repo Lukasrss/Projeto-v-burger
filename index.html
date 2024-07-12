@@ -43,7 +43,7 @@
                     </div>
                 </div> <!-- FIM seção img -->
 
-                <div class="col-md-6">
+                <div class="col-md-6" v-if="etapa == 1">
 
                     <!-- TIPO do Pão -->
                     <div class="row mt-2">
@@ -147,6 +147,11 @@
                     <!-- Fazer Pedido -->
                     <div class="row mt-2">
                         <!--     button    Fazer pedido    -->
+                        <div class="col d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary" @click="fazerPedido()">
+                                Fazer Pedido
+                            </button>
+                        </div>
                     </div>
                 </div> <!-- Fim col md -->
 
@@ -209,6 +214,7 @@
                 inputSalada: [],
                 inputMolhos: [],
                 inputTipoHamburguer: '',
+                etapa: 1,
             },
 
             computed: {
@@ -258,7 +264,13 @@
                             return 'imagens/padrao/hamburguer.png'
                     }
                 },
-            }
+            },
+
+            methods: {
+                fazerPedido(){
+                    
+                },
+            },
 
         })
 
