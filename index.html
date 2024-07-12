@@ -179,9 +179,9 @@
 
                     <div class="row mt-2">
                         <div class="col d-flex justify-content-between">
-
+                            <button type="button" class="btn btn-warning" @click="etapa -= 1"> Voltar para o lanche </button>
                             <!-- Voltar para o Lanche  -->
-
+                            <button type="button" class="btn btn-success" @click="confirmarPedido()"> Confirmar pedido </button>
                         </div>
                     </div>
                 </div> <!-- fim col md 6 -->
@@ -224,6 +224,8 @@
                 inputMolhos: [],
                 inputHamburguer: '',
                 etapa: 1,
+                inputNome: '',
+                inputEndereco: '',
             },
 
             computed: {
@@ -281,6 +283,13 @@
                         this.etapa = 2
                     }else{
                         alert('Selecione pelo menos o um tipo de pão e um tipo de carne.')
+                    }
+                },
+                confirmarPedido(){
+                    if(this.inputNome && this.inputEndereco){
+                        this.etapa = 3
+                    }else{
+                        alert('Por favor, digite seu nome e endereço corretamente.')
                     }
                 },
             },
