@@ -191,18 +191,23 @@
                     <div class="row mt-2">
                         <div class="col">
                             <div class="card">
-
+                                <div class="card-header">
+                                    Pedido Confirmado
+                                </div>
                                 <!--  PEDIDO CONFIRMADO -->
-
+                                <div class="card-body">
+                                    <p>Agora é só aguardar 10 minutos!</p>
+                                    <p>Vamos chamar vc em breve</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- Repetir pedido -->
                     <div class="row mt-2">
                         <div class="col d-flex justify-content-between">
-
+                            <button type="button" class="btn btn-primary" @click="etapa = 1"> Repetir Pedido </button>
                             <!-- button Repetir Pedido -->
-
+                            <button type="button" class="btn btn-success" @click="novoPedido()"> Novo Pedido </button>
                         </div>
                     </div>
                 </div>
@@ -226,6 +231,7 @@
                 etapa: 1,
                 inputNome: '',
                 inputEndereco: '',
+                novoPedidoAssincrono: null,
             },
 
             computed: {
@@ -288,12 +294,31 @@
                 confirmarPedido(){
                     if(this.inputNome && this.inputEndereco){
                         this.etapa = 3
+                        this.novoPedidoAssincrono = setTimeout(() => {
+                            this.novoPedido()
+                        }, 5000);
                     }else{
                         alert('Por favor, digite seu nome e endereço corretamente.')
                     }
                 },
-            },
+                novoPedido(){
+                    this.etapa = 1
 
+                    this.inputTipoPao = ''
+                    this.inputSalada = []
+                    this.inputMolhos = []
+                    this.inputHamburguer = ''
+                    this.inputNome = ''
+                    this.inputEndereco = ''
+                },
+            },
+            watch: {
+                etapa(novoValor){
+                    if(novoValor == 1){
+                        clearTimeout(this.novoPedidoAssincrono)
+                    }
+                }
+            },
         })
 
     </script>
